@@ -3,6 +3,7 @@
 public class CubePlacer : MonoBehaviour
 {
     private Grid grid;
+    public Transform block;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class CubePlacer : MonoBehaviour
     private void PlaceCubeNear(Vector3 clickPoint)
     {
         var finalPosition = grid.GetNearestPointOnGrid(clickPoint);
-        GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;
+        Instantiate(block, finalPosition, Quaternion.identity);
 
         //GameObject.CreatePrimitive(PrimitiveType.Sphere).transform.position = nearPoint;
     }
