@@ -3,6 +3,7 @@
 public class CubePlacer : MonoBehaviour
 {
     private Grid grid;
+    public GameManager gameManager;
 
     private void Awake()
     {
@@ -15,6 +16,8 @@ public class CubePlacer : MonoBehaviour
         {
             RaycastHit hitInfo;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            gameManager.BuyTile();
 
             if (Physics.Raycast(ray, out hitInfo))
             {
