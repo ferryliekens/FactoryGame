@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="assets\Save-It_BasicsFree\Scripts\Save_Load_BasicSystem.cs">
+    <Files>
+      <File FileName="assets\Scripts\GridMove.cs" Line="293" Column="32" />
+      <File FileName="assets\Scripts\DataMaster.cs" Line="2" Column="26" />
+      <File FileName="assets\Scripts\ColliderDetect.cs" Line="11" Column="52" />
+      <File FileName="assets\Save-It_BasicsFree\Scripts\Save_Load_BasicSystem.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
