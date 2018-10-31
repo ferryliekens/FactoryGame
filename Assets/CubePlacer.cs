@@ -73,7 +73,7 @@ public class CubePlacer : MonoBehaviour
         gameManager.BuyTile();
         var finalPosition = grid.GetNearestPointOnGrid(clickPoint);
         Instantiate(block, finalPosition, Quaternion.identity);
-        blockPositions.Add(grid.GetNearestPointOnGrid(clickPoint));
+        blockPositions.Add(clickPoint);
     }
 
     private void TempCube(Vector3 clickPoint)
@@ -92,6 +92,7 @@ public class CubePlacer : MonoBehaviour
     private IEnumerator MoveProductWithDelay()
     {
         Vector3 lastPosition = blockPositions.Last();
+        Debug.Log("Moving product");
 
         for(int i = 0; i < products.Length; i++)
         {
@@ -106,7 +107,7 @@ public class CubePlacer : MonoBehaviour
             {
                 Debug.Log("I is " + i + p);
                 
-                product.transform.localPosition = new Vector3 { x = p.x, y = p.y + 1, z = p.z };
+                product.transform.position = new Vector3 { x = p.x, y = p.y + 1, z = p.z };
                 yield return new WaitForSeconds(0.1f);
 
                 if (position.Equals(lastPosition))
