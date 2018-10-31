@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class CubePlacer : MonoBehaviour
 {
     private Grid grid;
     public GameManager gameManager;
-    public Transform block;
-
+    public List<Transform> BlockTypes;
+    private static Transform BlockHolder;
 
 
     private void Awake()
     {
         grid = FindObjectOfType<Grid>();
+        BlockHolder = Instantiate(BlockTypes[0]) as Transform;
     }
 
     private void Update()
@@ -25,7 +27,6 @@ public class CubePlacer : MonoBehaviour
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit hit = hits[i];
-                Renderer rend = hit.transform.GetComponent<Renderer>();
             }
 
             if (Physics.Raycast(ray, out hitInfo) && hits.Length < 3)
@@ -33,7 +34,11 @@ public class CubePlacer : MonoBehaviour
                 gameManager.BuyTile();
                 PlaceCubeNear(hitInfo.point);
             }
+
+            
         }
+
+        BlueprintCube();
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -54,12 +59,40 @@ public class CubePlacer : MonoBehaviour
     private void PlaceCubeNear(Vector3 clickPoint)
     {
         var finalPosition = grid.GetNearestPointOnGrid(clickPoint);
-        Instantiate(block, finalPosition, Quaternion.identity);
+        var blockType = CheckSelectedCube();
+        Instantiate(blockType, finalPosition, Quaternion.identity);
     }
 
-    private void TempCube(Vector3 clickPoint)
+    private void BlueprintCube()
     {
-        var finalPosition = grid.GetNearestPointOnGrid(clickPoint);
+        RaycastHit hitInfo;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hitInfo))
+        {
+            Debug.Log(hitInfo);
+            BlockHolder.position = grid.GetNearestPointOnGrid(hitInfo.point);
 
+        }
+    }
+
+    private Transform CheckSelectedCube()
+    {
+        switch (GameManager.selectedBlock)
+        {
+            case BlockType.Tiny:
+                return BlockTypes[0];
+            case BlockType.Small:
+                return BlockTypes[1];
+            case BlockType.Medium:
+                return BlockTypes[2];
+            default:
+                return BlockTypes[0];
+        }
+    }
+
+    public static void ChangeCube(GameObject Block)
+    {
+        Destroy(BlockHolder.gameObject);
+        BlockHolder = Instantiate(Block.transform) as Transform;
     }
 }
