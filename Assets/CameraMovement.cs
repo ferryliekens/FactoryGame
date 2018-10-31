@@ -32,10 +32,7 @@ public class CameraMovement : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.A))
         {
-            float xMovement = transform.position.x - speed;
-            float zMovement = -72 - xMovement;
-
-            transform.position = new Vector3(xMovement, transform.position.y, zMovement);
+            transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
         }
 
         if(Input.GetKey(KeyCode.S))
@@ -45,10 +42,7 @@ public class CameraMovement : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.D))
         {
-            float xMovement = transform.position.x + speed;
-            float zMovement = -72 - xMovement;
-
-            transform.position = new Vector3(xMovement, transform.position.y, zMovement);
+            transform.position = new Vector3(transform.position.x + speed, transform.position.y  , transform.position.z);
         }
 
     }

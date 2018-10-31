@@ -1,13 +1,23 @@
+<<<<<<< HEAD
 ﻿using UnityEngine;
 using System.Collections.Generic;
+=======
+﻿using System.Collections.Generic;
+using UnityEngine;
+>>>>>>> a65c8890789a0444f24d87fe9691593a45e68749
 
 public class CubePlacer : MonoBehaviour
 {
+    public List<Transform> BlockTypes;
     private Grid grid;
     public GameManager gameManager;
+<<<<<<< HEAD
     public List<Transform> BlockTypes;
     private static Transform BlockHolder;
 
+=======
+    private static Transform BlockHolder;
+>>>>>>> a65c8890789a0444f24d87fe9691593a45e68749
 
     private void Awake()
     {
@@ -19,10 +29,8 @@ public class CubePlacer : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && gameManager.money > 0)
         {
-            RaycastHit[] hits;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            hits = Physics.RaycastAll(ray);
             RaycastHit hitInfo;
+<<<<<<< HEAD
 
             for (int i = 0; i < hits.Length; i++)
             {
@@ -30,15 +38,23 @@ public class CubePlacer : MonoBehaviour
             }
 
             if (Physics.Raycast(ray, out hitInfo) && hits.Length < 4)
+=======
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
+            // IF Raycast = HIT
+            if (Physics.Raycast(ray, out hitInfo))
+>>>>>>> a65c8890789a0444f24d87fe9691593a45e68749
             {
                 gameManager.BuyTile();
                 PlaceCubeNear(hitInfo.point);
+                Debug.Log(hitInfo);
             }
 
             
         }
 
         BlueprintCube();
+<<<<<<< HEAD
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -54,13 +70,21 @@ public class CubePlacer : MonoBehaviour
                 }
             }
         }
+=======
+        
+>>>>>>> a65c8890789a0444f24d87fe9691593a45e68749
     }
 
     private void PlaceCubeNear(Vector3 clickPoint)
     {
         var finalPosition = grid.GetNearestPointOnGrid(clickPoint);
+<<<<<<< HEAD
         var blockType = CheckSelectedCube();
         Instantiate(blockType, finalPosition, Quaternion.identity);
+=======
+        var blocktype = CheckSelectedCube();
+        Instantiate(blocktype, finalPosition, Quaternion.identity);
+>>>>>>> a65c8890789a0444f24d87fe9691593a45e68749
     }
 
     private void BlueprintCube()
@@ -71,7 +95,11 @@ public class CubePlacer : MonoBehaviour
         {
             Debug.Log(hitInfo);
             BlockHolder.position = grid.GetNearestPointOnGrid(hitInfo.point);
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> a65c8890789a0444f24d87fe9691593a45e68749
         }
     }
 
