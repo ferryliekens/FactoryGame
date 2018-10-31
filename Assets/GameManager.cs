@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-    public int money = 100;
+    public int money;
     public Text moneyText;
     public static BlockType selectedBlock;
+    private int amountOfBlocks;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +23,16 @@ public class GameManager : MonoBehaviour {
     public void BuyTile()
     {
         // Should be more dynamic
-        if (money > 0) money -= 10;
+        if (money > 0)
+        {
+            money -= 10;
+            amountOfBlocks += 1;
+        }
+    }
+
+    public int BlocksPlaced()
+    {
+        return amountOfBlocks;
     }
 
 }
