@@ -28,7 +28,7 @@ public class CubePlacer : MonoBehaviour
                 Renderer rend = hit.transform.GetComponent<Renderer>();
             }
 
-            if (Physics.Raycast(ray, out hitInfo) && hits.Length < 2)
+            if (Physics.Raycast(ray, out hitInfo) && hits.Length < 3)
             {
                 gameManager.BuyTile();
                 PlaceCubeNear(hitInfo.point);
