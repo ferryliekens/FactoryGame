@@ -42,7 +42,7 @@ public class CameraMovement : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + speed, transform.position.y  , transform.position.z);
         }
 
     }

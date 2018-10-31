@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 
     public int money = 100;
     public Text moneyText;
+    public static BlockType selectedBlock;
 
 	// Use this for initialization
 	void Start () {
@@ -23,4 +24,10 @@ public class GameManager : MonoBehaviour {
         // Should be more dynamic
         if (money > 0) money -= 10;
     }
+
+}
+
+public enum BlockType
+{
+    Tiny, Small, Medium
 }
