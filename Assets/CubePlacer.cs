@@ -29,7 +29,7 @@ public class CubePlacer : MonoBehaviour
                 RaycastHit hit = hits[i];
             }
 
-            if (Physics.Raycast(ray, out hitInfo) && hits.Length < 3)
+            if (Physics.Raycast(ray, out hitInfo) && hits.Length < 4)
             {
                 gameManager.BuyTile();
                 PlaceCubeNear(hitInfo.point);
