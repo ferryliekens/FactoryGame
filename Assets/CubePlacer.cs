@@ -25,6 +25,8 @@ public class CubePlacer : MonoBehaviour
                 PlaceCubeNear(hitInfo.point);
             }
         }
+
+
     }
 
     private void PlaceCubeNear(Vector3 clickPoint)
@@ -33,5 +35,12 @@ public class CubePlacer : MonoBehaviour
         Instantiate(block, finalPosition, Quaternion.identity);
 
         //GameObject.CreatePrimitive(PrimitiveType.Sphere).transform.position = nearPoint;
+    }
+
+    //
+    private void TempCube(Vector3 clickPoint)
+    {
+        var finalPosition = grid.GetNearestPointOnGrid(clickPoint);
+
     }
 }
