@@ -15,8 +15,6 @@ public class CubePlacer : MonoBehaviour
     public GameObject[] products;
     private Input input;
 
-
-
     private void Awake()
     {
         grid = FindObjectOfType<Grid>();
@@ -87,6 +85,7 @@ public class CubePlacer : MonoBehaviour
     private void PlayConveyorBelt()
     {
         StartCoroutine("MoveProductWithDelay");
+        Debug.Log("Hi!");
     }
 
     private IEnumerator MoveProductWithDelay()
