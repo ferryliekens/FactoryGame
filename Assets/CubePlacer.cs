@@ -37,7 +37,7 @@ public class CubePlacer : MonoBehaviour
     private void PlaceCubeNear(Vector3 clickPoint)
     {
         var finalPosition = grid.GetNearestPointOnGrid(clickPoint);
-        var blocktype = CheckSelectedCube();
+        var blocktype = GameManager.BlockSelected;
         Instantiate(blocktype, finalPosition, Quaternion.identity);
     }
 
@@ -53,22 +53,8 @@ public class CubePlacer : MonoBehaviour
         }
     }
 
-    private Transform CheckSelectedCube()
-    {
-        switch (GameManager.selectedBlock)
-        {
-            case BlockType.Tiny:
-                return BlockTypes[0];
-            case BlockType.Small:
-                return BlockTypes[1];
-            case BlockType.Medium:
-                return BlockTypes[2];
-            default:
-                return BlockTypes[0];
-        }
-    }
 
-    public static void ChangeCube(GameObject Block)
+    public static void ChangeBlock(GameObject Block)
     {
         Destroy(BlockHolder.gameObject);
         BlockHolder = Instantiate(Block.transform) as Transform;

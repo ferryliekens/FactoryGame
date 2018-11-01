@@ -6,12 +6,11 @@ using UnityEngine.EventSystems;
 
 public class CubeSelecter : MonoBehaviour, IPointerDownHandler{
 
-    public BlockType Type;
     public GameObject Block;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        GameManager.selectedBlock = Type;
-        CubePlacer.ChangeCube(Block);
+        GameManager.BlockSelected = Block;
+        CubePlacer.ChangeBlock(Block);
     }
 }

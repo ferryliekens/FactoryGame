@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour {
 
     public int money;
     public Text moneyText;
-    public static BlockType selectedBlock;
     private int amountOfBlocks;
+    public static GameObject BlockSelected;
 
 	// Use this for initialization
 	void Start () {
@@ -35,9 +35,4 @@ public class GameManager : MonoBehaviour {
         return amountOfBlocks;
     }
 
-}
-
-public enum BlockType
-{
-    Tiny, Small, Medium
 }
